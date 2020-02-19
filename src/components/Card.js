@@ -17,7 +17,7 @@ const Card = () => {
     return (
         <div className = 'card-container'>
             <label>
-                Select the Date 
+                <h3>Select the Date:</h3> 
                 <input type='date' id='dateInput' ></input>
             </label>
             <button onClick = {() => {
