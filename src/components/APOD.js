@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import styled from 'styled-components';
-import { Card, CardBody, Button, CardTitle, CardText, CardImg } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
 
 const APODButton = styled.button `
     background: black;
@@ -21,11 +21,9 @@ const CardContainer = styled.div `
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    object-fit: scale;
     margin: 20px auto 0 auto;
     border: 1px solid gray;
-    color: black;
-    background: white;
+    box-shadow: 5px 10px 8px 10px #888888;
 `
 const APOD = (props) => {
     const [apod, setApod] = useState([]);
@@ -44,14 +42,14 @@ const APOD = (props) => {
         <div className = 'container'>
             <p>
                 <h3>Select the Date:</h3> 
-                <input type='date' id='dateInput' ></input>
+                <input type='date' id='dateInput'></input>
             </p>
             <APODButton onClick = {() => {
                 setDate(document.getElementById('dateInput').value);
             }}>Get Picture</APODButton>
             <CardContainer>
                 <Card>
-                    <CardImg top width="100%" src={apod.hdurl} alt={apod.title} />
+                    <CardImg top width="100%" src={apod.url} alt={apod.title} />
                     <CardBody>
                     <CardTitle>{apod.title}</CardTitle>
                     <CardText>{apod.explanation}</CardText>
